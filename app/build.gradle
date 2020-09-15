@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.example.oxymeter"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug{
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "color"
+
+    productFlavors {
+
+        development {
+            dimension "color"
+        }
+
+        production {
+            dimension "color"
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation ('com.jakewharton:butterknife:10.0.0'){
+        exclude module: 'support-compat'
+    }
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0"
+
+    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'com.karumi:dexter:6.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+
+}
