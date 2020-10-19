@@ -24,14 +24,7 @@ public class DataParser {
     private OxiParams mOxiParams = new OxiParams();
 
 
-    /**
-     * interface for parameters changed.
-     */
-    public interface onPackageReceivedListener
-    {
-        void onOxiParamsChanged(OxiParams params);
-        void onPlethWaveReceived(int amp);
-    }
+
 
     //Constructor
     public DataParser(onPackageReceivedListener listener)

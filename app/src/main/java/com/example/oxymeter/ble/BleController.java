@@ -25,7 +25,7 @@ import java.util.List;
  * Created by ZXX on 2017/4/28.
  */
 
-public class BleController {
+public class BleController  {
     //TAG
     private final String TAG = this.getClass().getName();
 
@@ -33,7 +33,8 @@ public class BleController {
     private static BleController  mBleController = null;
     private BluetoothAdapter      mBtAdapter     = null;
 
-    public  StateListener         mStateListener;
+    public BleInterface.StateListener mStateListener;
+
     private BluetoothLeService    mBluetoothLeService;
     private BluetoothGattCharacteristic chReceiveData;
     private   BluetoothGattCharacteristic chModifyName;
@@ -42,7 +43,7 @@ public class BleController {
 
 
 
-    private BleController(StateListener stateListener){
+    private BleController(BleInterface.StateListener stateListener){
         mBtAdapter = BluetoothAdapter.getDefaultAdapter();
         mStateListener = stateListener;
         mHandler = new Handler();
@@ -52,7 +53,7 @@ public class BleController {
      * Get a Controller
      * @return
      */
-    public static BleController getDefaultBleController(StateListener stateListener) {
+    public static BleController getDefaultBleController(BleInterface.StateListener stateListener) {
         if (mBleController == null) {
             mBleController = new BleController(stateListener);
         }
@@ -282,17 +283,6 @@ public class BleController {
 
 
 
-    /**
-     * BTController interfaces
-     */
-    public interface StateListener
-    {
-        void onFoundDevice(BluetoothDevice device);
 
-        void onConnected();
-        void onDisconnected();
-        void onReceiveData(byte[] dat);
-        void onServicesDiscovered();
-        void onScanStop();
-    }
+
 }
