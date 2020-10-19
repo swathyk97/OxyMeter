@@ -49,7 +49,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
 
-    <com.berry_med.spo2_ble.views.WaveformView
+    <com.example.oxymeter.views.WaveformView
         android:id="@+id/wfvPleth"
         android:layout_width="0dp"
         android:layout_margin="8dp"
